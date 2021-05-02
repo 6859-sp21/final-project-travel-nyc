@@ -1,8 +1,8 @@
 {
-  "name": "citibike",
+  "name": "NYCTaxiTrips",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://6859-sp21.github.io/a4-citibiketrips/",
+  "homepage": "https://6859-sp21.github.io/final-project-travel-nyc/",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",

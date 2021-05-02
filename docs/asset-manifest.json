@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/a4-citibiketrips/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "/a4-citibiketrips/static/js/main.4e90754b.chunk.js",
-    "main.js.map": "/a4-citibiketrips/static/js/main.4e90754b.chunk.js.map",
-    "runtime-main.js": "/a4-citibiketrips/static/js/runtime-main.122157e4.js",
-    "runtime-main.js.map": "/a4-citibiketrips/static/js/runtime-main.122157e4.js.map",
-    "static/js/2.95bc4aa6.chunk.js": "/a4-citibiketrips/static/js/2.95bc4aa6.chunk.js",
-    "static/js/2.95bc4aa6.chunk.js.map": "/a4-citibiketrips/static/js/2.95bc4aa6.chunk.js.map",
-    "static/js/3.a2233a55.chunk.js": "/a4-citibiketrips/static/js/3.a2233a55.chunk.js",
-    "static/js/3.a2233a55.chunk.js.map": "/a4-citibiketrips/static/js/3.a2233a55.chunk.js.map",
-    "index.html": "/a4-citibiketrips/index.html",
-    "static/css/main.9d5b29c0.chunk.css.map": "/a4-citibiketrips/static/css/main.9d5b29c0.chunk.css.map",
-    "static/js/2.95bc4aa6.chunk.js.LICENSE.txt": "/a4-citibiketrips/static/js/2.95bc4aa6.chunk.js.LICENSE.txt",
-    "static/js/mapbox-gl-csp-worker.a61d3204.worker.js": "/a4-citibiketrips/static/js/mapbox-gl-csp-worker.a61d3204.worker.js",
-    "static/js/mapbox-gl-csp-worker.a61d3204.worker.js.map": "/a4-citibiketrips/static/js/mapbox-gl-csp-worker.a61d3204.worker.js.map",
-    "static/media/taxis.ac20a2fd.csv": "/a4-citibiketrips/static/media/taxis.ac20a2fd.csv"
+    "main.css": "/final-project-travel-nyc/static/css/main.9d5b29c0.chunk.css",
+    "main.js": "/final-project-travel-nyc/static/js/main.f348ee75.chunk.js",
+    "main.js.map": "/final-project-travel-nyc/static/js/main.f348ee75.chunk.js.map",
+    "runtime-main.js": "/final-project-travel-nyc/static/js/runtime-main.1f41302b.js",
+    "runtime-main.js.map": "/final-project-travel-nyc/static/js/runtime-main.1f41302b.js.map",
+    "static/js/2.e30d92f4.chunk.js": "/final-project-travel-nyc/static/js/2.e30d92f4.chunk.js",
+    "static/js/2.e30d92f4.chunk.js.map": "/final-project-travel-nyc/static/js/2.e30d92f4.chunk.js.map",
+    "static/js/3.abb1222d.chunk.js": "/final-project-travel-nyc/static/js/3.abb1222d.chunk.js",
+    "static/js/3.abb1222d.chunk.js.map": "/final-project-travel-nyc/static/js/3.abb1222d.chunk.js.map",
+    "index.html": "/final-project-travel-nyc/index.html",
+    "static/css/main.9d5b29c0.chunk.css.map": "/final-project-travel-nyc/static/css/main.9d5b29c0.chunk.css.map",
+    "static/js/2.e30d92f4.chunk.js.LICENSE.txt": "/final-project-travel-nyc/static/js/2.e30d92f4.chunk.js.LICENSE.txt",
+    "static/js/mapbox-gl-csp-worker.63538341.worker.js": "/final-project-travel-nyc/static/js/mapbox-gl-csp-worker.63538341.worker.js",
+    "static/js/mapbox-gl-csp-worker.63538341.worker.js.map": "/final-project-travel-nyc/static/js/mapbox-gl-csp-worker.63538341.worker.js.map",
+    "static/media/taxis.ac20a2fd.csv": "/final-project-travel-nyc/static/media/taxis.ac20a2fd.csv"
   },
   "entrypoints": [
-    "static/js/runtime-main.122157e4.js",
-    "static/js/2.95bc4aa6.chunk.js",
+    "static/js/runtime-main.1f41302b.js",
+    "static/js/2.e30d92f4.chunk.js",
     "static/css/main.9d5b29c0.chunk.css",
-    "static/js/main.4e90754b.chunk.js"
+    "static/js/main.f348ee75.chunk.js"
   ]
 }
