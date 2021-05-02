@@ -131,7 +131,6 @@ class MapWrapper extends Component {
           trips: filter_data,
           loading: false,
         });
-        console.log(filter_data)
       })
       .then(() => {
         this.handleFlyTo(nyc);

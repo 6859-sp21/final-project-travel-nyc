@@ -103,7 +103,6 @@ export default function Legend({
   const [localRadius, setLocalRadius] = React.useState(100);
 
   const handleBrushRadius = (event, newValue) => {
-    console.log(newValue);
     setLocalRadius(newValue);
     setBrushRadius(newValue);
   };

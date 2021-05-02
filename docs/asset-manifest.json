@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/final-project-travel-nyc/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "/final-project-travel-nyc/static/js/main.f348ee75.chunk.js",
-    "main.js.map": "/final-project-travel-nyc/static/js/main.f348ee75.chunk.js.map",
+    "main.js": "/final-project-travel-nyc/static/js/main.004e6a86.chunk.js",
+    "main.js.map": "/final-project-travel-nyc/static/js/main.004e6a86.chunk.js.map",
     "runtime-main.js": "/final-project-travel-nyc/static/js/runtime-main.1f41302b.js",
     "runtime-main.js.map": "/final-project-travel-nyc/static/js/runtime-main.1f41302b.js.map",
     "static/js/2.e30d92f4.chunk.js": "/final-project-travel-nyc/static/js/2.e30d92f4.chunk.js",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.1f41302b.js",
     "static/js/2.e30d92f4.chunk.js",
     "static/css/main.9d5b29c0.chunk.css",
-    "static/js/main.f348ee75.chunk.js"
+    "static/js/main.004e6a86.chunk.js"
   ]
 }
