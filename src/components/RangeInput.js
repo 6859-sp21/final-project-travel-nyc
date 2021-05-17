@@ -5,12 +5,15 @@ import Button from "@material-ui/core/IconButton";
 import Lock from "@material-ui/icons/Lock";
 import LockOpen from "@material-ui/icons/LockOpen";
 import Typography from "@material-ui/core/Typography";
+import PlayIcon from "@material-ui/icons/PlayArrow";
+import PauseIcon from "@material-ui/icons/Pause";
 
 const PositionContainer = styled("div")({
   position: "absolute",
+  left: "20vw",
   zIndex: 1,
   bottom: "40px",
-  width: "100%",
+  width: "80vw",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -21,7 +24,7 @@ const CenterContainer = styled("div")({
   zIndex: 1,
   // bottom: "40px",
   height: "120%",
-  width: "60%",
+  width: "65%",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -42,9 +45,37 @@ const SliderInput = withStyles({
   },
 })(Slider);
 
-export default function RangeInput({ min, max, value, onChange, formatLabel }) {
+export default function RangeInput({
+  min,
+  max,
+  value,
+  animationSpeed,
+  onChange,
+  formatLabel,
+}) {
   const [lock, setLock] = useState(true);
   const [span, setSpan] = useState(value[1] - value[0]);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [animation] = useState({});
+
+  // prettier-ignore
+  useEffect(() => {
+    return () => animation.id && cancelAnimationFrame(animation.id);
+  }, [animation]);
+
+  if (isPlaying && !animation.id) {
+    const span = value[1] - value[0];
+    let nextValueMin = value[0] + animationSpeed;
+    if (nextValueMin + span >= max) {
+      nextValueMin = min;
+    }
+    animation.id = requestAnimationFrame(() => {
+      animation.id = 0;
+      onChange([nextValueMin, nextValueMin + span]);
+    });
+  }
+
+  const isButtonEnabled = value[0] > min || value[1] < max;
 
   useEffect(() => {
     setSpan(value[1] - value[0]);
@@ -73,9 +104,17 @@ export default function RangeInput({ min, max, value, onChange, formatLabel }) {
   return (
     <PositionContainer>
       <CenterContainer>
-        <Typography id="time-filter" color="secondary">
-          Time Filter
-        </Typography>
+        <Button
+          color="secondary"
+          disabled={!isButtonEnabled}
+          onClick={() => setIsPlaying(!isPlaying)}
+        >
+          {isPlaying ? (
+            <PauseIcon title="Stop" />
+          ) : (
+            <PlayIcon title="Animate" />
+          )}
+        </Button>
 
         <SliderInput
           color="secondary"
