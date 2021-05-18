@@ -7,8 +7,16 @@ import Fade from "@material-ui/core/Fade";
 import IconButton from "@material-ui/core/IconButton";
 import IconHelp from "@material-ui/icons/Help";
 import Slider from "@material-ui/core/Slider";
+import LeftArrow from "@material-ui/icons/ArrowBackIos";
+import RightArrow from "@material-ui/icons/ArrowForwardIos";
 import { ThemeProvider } from "@material-ui/styles";
 import { ButtonGroup } from "@material-ui/core";
+
+import Page0 from "./pages/Page0";
+import Page1 from "./pages/Page1";
+import Page2 from "./pages/Page2";
+import Page3 from "./pages/Page3";
+import Page4 from "./pages/Page4";
 
 export default function Legend({
   counts,
@@ -25,17 +33,45 @@ export default function Legend({
   arcType,
   setArcType,
 }) {
+  const page_array = [<Page0 />, <Page1 />, <Page2 />, <Page3 />, <Page4 />];
+  const max_page = page_array.length;
   const [printCount, setPrintCount] = useState(0);
   useEffect(() => {
     setPrintCount(((counts / 75960) * 100).toFixed(2));
   }, [counts]);
 
+  const [page, setPage] = useState(0);
+
+  const updatePage = (change) => {
+    let newPage = page + change;
+    if (newPage < 0) {
+      newPage = 0;
+    } else if (newPage >= max_page) {
+      newPage = max_page - 1;
+    }
+
+    if (page === newPage) return;
+
+    if (newPage === 2) {
+      setBrushing(true);
+      setAggregate(false);
+    } else if (newPage === 3) {
+      setBrushing(false);
+      setAggregate(true);
+    } else {
+      setBrushing(false);
+      setAggregate(false);
+    }
+    setPage(newPage);
+  };
+
   const PositionContainer = styled("div")({
     position: "absolute",
     zIndex: 1,
-    top: "2em",
-    left: "2em",
-    width: "40%",
+    top: "1vh",
+    left: "1vw",
+    height: "90vh",
+    width: "20vw",
   });
 
   const CenterContainer = styled("div")({
@@ -45,10 +81,10 @@ export default function Legend({
     position: "",
     zIndex: 1,
     height: "100%",
-    width: "60%",
+    width: "100%",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    // justifyContent: "center",
     alignItems: "center",
     background: "rgb(48,48,48)",
     borderRadius: "10px",
@@ -57,7 +93,7 @@ export default function Legend({
   const TextContainer = styled("div")({
     color: "#dddddd",
     display: "block",
-    fontSize: "1.2em",
+    fontSize: "1.75em",
     marginTop: "0.25em",
     marginBottom: "0.83em",
     marginLeft: 0,
@@ -111,21 +147,94 @@ export default function Legend({
     <div>
       <PositionContainer>
         <CenterContainer>
-          {/* <TextContainer>Percent of trips during this time</TextContainer>
-          <TextContainer>{printCount}%</TextContainer> */}
+          <TextContainer>NYC COVID Taxi Trips</TextContainer>
+          {/* Prev and next buttons */}
           <div>
-            <Button
-              variant="contained"
-              disableElevation
-              onClick={toggleBrush}
-              color="primary"
-            >
-              Toggle brushing
-            </Button>
+            <ButtonGroup>
+              <Button
+                variant={page ? "contained" : "outlined"}
+                disableElevation
+                onClick={() => updatePage(-1)}
+                color="primary"
+                startIcon={<LeftArrow />}
+              >
+                Back
+              </Button>
+              <Button
+                variant={page !== max_page - 1 ? "contained" : "outlined"}
+                disableElevation
+                onClick={() => updatePage(1)}
+                color="primary"
+                endIcon={<RightArrow />}
+              >
+                Next
+              </Button>
+            </ButtonGroup>
+          </div>
+          <div>
+            {/* Brushing */}
+            {page === max_page - 1 ? (
+              <div>
+                <h3>Free Exploration</h3>
+                <div>Analysis Method</div>
+                <br></br>
+                <ButtonGroup>
+                  <Button
+                    variant="contained"
+                    disableElevation
+                    onClick={toggleBrush}
+                    color={brushing ? "" : "primary"}
+                  >
+                    brushing
+                  </Button>
+                  <Button
+                    variant="contained"
+                    disableElevation
+                    onClick={toggleAgg}
+                    color={aggregate ? "" : "primary"}
+                  >
+                    aggregation
+                  </Button>
+                </ButtonGroup>
+                <div></div>
+                <br></br>
+                <ButtonGroup>
+                  <Button
+                    variant="contained"
+                    disableElevation
+                    onClick={resetFilter}
+                    color="primary"
+                  >
+                    Reset Time
+                  </Button>
+                  <Button
+                    variant="contained"
+                    disableElevation
+                    onClick={resetView}
+                    color="primary"
+                  >
+                    Reset View
+                  </Button>
+                </ButtonGroup>
+                <IconButton
+                  variant="contained"
+                  disableElevation
+                  onClick={handleOpen}
+                  color="secondary"
+                >
+                  <IconHelp />
+                </IconButton>
+              </div>
+            ) : (
+              <div></div>
+            )}
+
             {brushing ? (
               <div>
+                <h3>Location Brushing</h3>
                 <div>Brushing Arc Target</div>
-                <ButtonGroup>
+                <br></br>
+                <ButtonGroup size="small">
                   <Button
                     variant="contained"
                     disableElevation
@@ -151,34 +260,47 @@ export default function Legend({
                     Both
                   </Button>
                 </ButtonGroup>
-
+                <div></div>
+                <br></br>
                 <div>Brush Radius</div>
-                <Slider
-                  value={localRadius}
-                  onChange={handleBrushRadius}
-                  step={10}
-                  min={50}
-                  max={400}
-                  valueLabelDisplay="auto"
-                  aria-labelledby="continuous-slider"
-                />
+                <br></br>
+                <ButtonGroup size="small">
+                  <Button
+                    variant="contained"
+                    disableElevation
+                    onClick={() => handleBrushRadius(undefined, 100)}
+                    color={brushRadius == 100 ? "" : "primary"}
+                  >
+                    Small
+                  </Button>
+                  <Button
+                    variant="contained"
+                    disableElevation
+                    onClick={() => handleBrushRadius(undefined, 200)}
+                    color={brushRadius == 200 ? "" : "primary"}
+                  >
+                    Medium
+                  </Button>
+                  <Button
+                    variant="contained"
+                    disableElevation
+                    onClick={() => handleBrushRadius(undefined, 400)}
+                    color={brushRadius == 400 ? "" : "primary"}
+                  >
+                    Large
+                  </Button>
+                </ButtonGroup>
+                <br></br>
               </div>
             ) : (
               <div />
             )}
-
-            <Button
-              variant="contained"
-              disableElevation
-              onClick={toggleAgg}
-              color="primary"
-            >
-              Toggle aggregation
-            </Button>
             {aggregate ? (
               <div>
-                Aggregate by Event:
-                <ButtonGroup>
+                <h3>Location Aggregation</h3>
+                <div>Aggregation Type</div>
+                <br></br>
+                <ButtonGroup size="small">
                   <Button
                     variant="contained"
                     disableElevation
@@ -200,31 +322,7 @@ export default function Legend({
             ) : (
               <div />
             )}
-
-            <Button
-              variant="contained"
-              disableElevation
-              onClick={resetFilter}
-              color="primary"
-            >
-              Reset Time Filter
-            </Button>
-            <Button
-              variant="contained"
-              disableElevation
-              onClick={resetView}
-              color="primary"
-            >
-              Reset View
-            </Button>
-            <IconButton
-              variant="contained"
-              disableElevation
-              onClick={handleOpen}
-              color="secondary"
-            >
-              <IconHelp />
-            </IconButton>
+            <div>{page_array[page]}</div>
           </div>
         </CenterContainer>
       </PositionContainer>

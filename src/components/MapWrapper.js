@@ -159,7 +159,7 @@ class MapWrapper extends Component {
           min={0}
           max={1439}
           value={this.state.time_filter}
-          animationSpeed={20}
+          animationSpeed={10}
           formatLabel={this.formatLabel}
           onChange={this.setFilter}
           togglePlaying={this.togglePlaying}
