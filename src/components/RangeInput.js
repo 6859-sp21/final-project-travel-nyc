@@ -79,7 +79,7 @@ export default function RangeInput({
 
   useEffect(() => {
     setSpan(value[1] - value[0]);
-  }, value);
+  }, [value]);
 
   const localOnChange = (newValue) => {
     let updateValue = [value[0], value[1]];

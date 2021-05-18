@@ -220,7 +220,6 @@ export default function Map({
       getTargetColor: (d) => {
         return red;
       },
-      visible: true,
       opacity: 0.2,
       updateTriggers: {
         getSourceColor: [time_filter],

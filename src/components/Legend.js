@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { styled, makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Modal from "@material-ui/core/Modal";
@@ -6,10 +6,8 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import IconButton from "@material-ui/core/IconButton";
 import IconHelp from "@material-ui/icons/Help";
-import Slider from "@material-ui/core/Slider";
 import LeftArrow from "@material-ui/icons/ArrowBackIos";
 import RightArrow from "@material-ui/icons/ArrowForwardIos";
-import { ThemeProvider } from "@material-ui/styles";
 import { ButtonGroup } from "@material-ui/core";
 
 import Page0 from "./pages/Page0";
@@ -35,10 +33,6 @@ export default function Legend({
 }) {
   const page_array = [<Page0 />, <Page1 />, <Page2 />, <Page3 />, <Page4 />];
   const max_page = page_array.length;
-  const [printCount, setPrintCount] = useState(0);
-  useEffect(() => {
-    setPrintCount(((counts / 75960) * 100).toFixed(2));
-  }, [counts]);
 
   const [page, setPage] = useState(0);
 
@@ -136,10 +130,8 @@ export default function Legend({
     setBrushing(false);
   };
 
-  const [localRadius, setLocalRadius] = React.useState(100);
 
   const handleBrushRadius = (event, newValue) => {
-    setLocalRadius(newValue);
     setBrushRadius(newValue);
   };
 
@@ -239,7 +231,7 @@ export default function Legend({
                     variant="contained"
                     disableElevation
                     onClick={() => setArcType("source")}
-                    color={arcType == "source" ? "" : "primary"}
+                    color={arcType === "source" ? "" : "primary"}
                   >
                     Pickups
                   </Button>
@@ -247,7 +239,7 @@ export default function Legend({
                     variant="contained"
                     disableElevation
                     onClick={() => setArcType("target")}
-                    color={arcType == "target" ? "" : "primary"}
+                    color={arcType === "target" ? "" : "primary"}
                   >
                     Dropoffs
                   </Button>
@@ -255,7 +247,7 @@ export default function Legend({
                     variant="contained"
                     disableElevation
                     onClick={() => setArcType("source_target")}
-                    color={arcType == "source_target" ? "" : "primary"}
+                    color={arcType === "source_target" ? "" : "primary"}
                   >
                     Both
                   </Button>
@@ -269,7 +261,7 @@ export default function Legend({
                     variant="contained"
                     disableElevation
                     onClick={() => handleBrushRadius(undefined, 100)}
-                    color={brushRadius == 100 ? "" : "primary"}
+                    color={brushRadius === 100 ? "" : "primary"}
                   >
                     Small
                   </Button>
@@ -277,7 +269,7 @@ export default function Legend({
                     variant="contained"
                     disableElevation
                     onClick={() => handleBrushRadius(undefined, 200)}
-                    color={brushRadius == 200 ? "" : "primary"}
+                    color={brushRadius === 200 ? "" : "primary"}
                   >
                     Medium
                   </Button>
@@ -285,7 +277,7 @@ export default function Legend({
                     variant="contained"
                     disableElevation
                     onClick={() => handleBrushRadius(undefined, 400)}
-                    color={brushRadius == 400 ? "" : "primary"}
+                    color={brushRadius === 400 ? "" : "primary"}
                   >
                     Large
                   </Button>

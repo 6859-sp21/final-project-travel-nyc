@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { styled, makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
-import Fade from "@material-ui/core/Fade";
-import IconButton from "@material-ui/core/IconButton";
-import IconHelp from "@material-ui/icons/Help";
-import Slider from "@material-ui/core/Slider";
-import { ThemeProvider } from "@material-ui/styles";
-import { ButtonGroup } from "@material-ui/core";
+import React from "react";
 
-export default function Page2({}) {
+export default function Page2() {
   return (
     <div>
+      <br></br>
       <div>Brushing is a method of analyzing specific regions on the map.</div>
       <br></br>
       <div>
