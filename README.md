@@ -2,7 +2,7 @@
 
 ## Jerry Zhang
 
-![Geographically Binned Histograms](https://github.com/6859-sp21/final-project-travel-nyc/tree/main/hist.png?raw=true)
+![Geographically Binned Histograms](./hist.png?raw=true)
 
 Final project deployed at:
 https://6859-sp21.github.io/final-project-travel-nyc/
