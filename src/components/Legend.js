@@ -373,7 +373,7 @@ export default function Legend({
                 </li>
               </ul>
               <p>
-                Data courtesy of NYC TLS:
+                Data courtesy of NYC TLC:
                 https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
               </p>
             </div>

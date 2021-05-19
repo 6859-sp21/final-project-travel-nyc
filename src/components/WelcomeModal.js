@@ -55,7 +55,7 @@ export default function WelcomeModal({ loading }) {
               June 2020) changed how people used taxis in NYC.
             </p>
             <p>
-              Data courtesy of NYC TLS:
+              Data courtesy of NYC TLC:
               https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
             </p>
 
