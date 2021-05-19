@@ -10,6 +10,8 @@ https://6859-sp21.github.io/final-project-travel-nyc/
 
 # Work
 
+This final project was an individual project; I interacted with peers to get user feedback throughout the development of the visualization.
+
 The technical workload of the project was mostly frontloaded, while the user testing and improvement iterations tooks most of the time between the MVP and the final deliverable. The average workload as 14 hours a week.
 
 # Dataset
